@@ -6,6 +6,9 @@ package player;
 
 import java.lang.reflect.Array;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  *
@@ -18,29 +21,25 @@ public class Player {
      */
     public static void main(String[] args) {
        
-        Scanner input = new Scanner (System.in);
-        int[] nums = new int[5];
-         for (int i = 0; i < 5; i++)
-        { 
-        System.out.println("Enter number for player 1 >>");
-        int num1 = input.nextInt();
-        System.out.println("Enter number for player 2 >>");
-        int num2 = input.nextInt();
-        System.out.println("Enter number for player 3 >>");
-        int num3 = input.nextInt();
-        System.out.println("Enter number for player 4 >>");
-        int num4 = input.nextInt();
-        System.out.println("Enter number for player 5 >>");
-        int num5 = input.nextInt();
-        }
-         input.close();
-         for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < nums[i]; j++) 
-                System.out.printf("*");
+          Scanner scanner = new Scanner(System.in);
+        List<Integer> numbers = new ArrayList<>();
 
+        for (int i = 1; i <= 5; i++) {
+            System.out.print("Enter number player >> " + i + ": ");
+            int num = scanner.nextInt();
+            numbers.add(num);
+        }
+
+        System.out.println("Numbers in asterisk");
+
+        for (int num : numbers) {
+            for (int i = 0; i < num; i++) {
+                System.out.print("*");
+            }
             System.out.println();
-        }      
+        }
+
+        scanner.close();
     }
-    
 }
+
